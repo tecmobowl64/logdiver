@@ -1,0 +1,24 @@
+# Import OS and sqlite for the program to use
+ import sqlite3
+ import os
+ import dbtest
+
+ # Random module to pick a number
+ import random
+ num = (random.randint(1,10))
+ responseArray = []
+
+ # Asks user to pick a number between 1 and 10 and, well, logic
+ while True:
+     guess = int(input("Guess a number between 1 and 10."))
+     if guess == num:
+         print("Nice one! The answer is:",num)
+         break
+     elif guess != num:
+         print("Testing")
+         responses = dbtest.get_responses()
+         print(responses)
+         # continue
+     else:
+         print("Else test")
+         break

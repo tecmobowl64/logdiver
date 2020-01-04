@@ -1,8 +1,17 @@
 #!/bin/bash
 # Testing user input
 
-echo Hello. What is your name?
+echo Enter the name of the object you wish to locate.
 
 read varname
 
-echo $varname? Heh. That\'s a funny name.
+query="zgrep -l "$varname" /home/rcooper/LogDiver/test*"
+
+# Work on conditional statement
+if [ "$query" ]; then
+    echo $varname found in:
+    $query
+fi
+if [ -z "$query" ]; then
+    echo $varname not found.
+fi
